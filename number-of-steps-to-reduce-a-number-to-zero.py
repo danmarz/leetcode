@@ -4,11 +4,11 @@ class Solution:
         while num > 0:
             if num % 2 == 0:
                 num = num / 2
-                steps += 1
             else:
                 num = num - 1
-                steps += 1
+            steps += 1
         return steps
+
 
 """
 Other solutions:
@@ -39,8 +39,8 @@ def numberOfSteps(self, num: int) -> int:
 #    Time:   O(1)          #
 #    Memory: O(1)          #
 ############################
-    def numberOfSteps(self, num: int) -> int:
-        if num == 0:
-            return 0
-        return num.bit_length() - 1 + num.bit_count()
+def numberOfSteps(self, num: int) -> int:
+    if num == 0:
+        return 0
+    return num.bit_length() - 1 + num.bit_count()
 """
