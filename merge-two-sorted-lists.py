@@ -7,8 +7,7 @@ class Solution:
     def mergeTwoLists(
         self, list1: Optional[ListNode], list2: Optional[ListNode]
     ) -> Optional[ListNode]:
-        dummy = ListNode()
-        current = dummy
+        current = dummy = ListNode()
 
         while list1 and list2:
             if list1.val < list2.val:
@@ -19,10 +18,13 @@ class Solution:
                 list2 = list2.next
             current = current.next
 
-        # Append remaining nodes from list1 or list2
+        # Append remaining nodes from list1 or list2 (refactor)
+        if list1 or list2:
+            current.next = list1 if list1 else list2
+        """
         if list1:
             current.next = list1
         if list2:
             current.next = list2
-
+        """
         return dummy.next
