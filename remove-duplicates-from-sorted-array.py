@@ -1,4 +1,9 @@
 def removeDuplicates(nums):
+    # refactored
+    nums[:] = sorted(set(nums))
+    return len(nums)
+
+    """
     if not nums:
         return 0
 
@@ -10,3 +15,4 @@ def removeDuplicates(nums):
             nums[slow] = nums[fast]
 
     return slow + 1
+    """
