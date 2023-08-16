@@ -16,3 +16,8 @@ class Solution:
             return verify(p.left, q.left) and verify(p.right, q.right)
 
         return verify(p, q)
+
+    ## Alternative solution: Convert both trees to string and equate them
+    """
+        return str(p) == str(q)
+    """
