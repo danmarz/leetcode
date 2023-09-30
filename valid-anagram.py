@@ -24,3 +24,15 @@ class Solution:
                 return False
 
         return True
+
+        # One line alternative
+        # return Counter(s) == Counter(t)
+
+        """
+        Overall, using the Counter class is a recommended and efficient way to check if two strings are anagrams. This approach has the following advantages:
+
+        - It's concise and easy to read, making the code more maintainable.
+        - It leverages Python's built-in data structures and operations, which are optimized for efficiency.
+        - It runs in O(n) time complexity, where n is the length of the strings, as it iterates through both strings once to create the character count dictionaries and then compares them.
+        - It runs in O(1) space complexity, as the size of the character count dictionaries is bounded by the number of unique characters in the strings.
+        """
