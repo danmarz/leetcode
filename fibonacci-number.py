@@ -7,7 +7,7 @@ class Solution:
             return n
 
         memo[n] = self.fib(n - 1, memo) + self.fib(n - 2, memo)
-        print(memo)
+
         return memo[n]
 
         # iterative solution
