@@ -1,24 +1,15 @@
 class Solution:
     def distMoney(self, money: int, children: int) -> int:
-        # Not enough money to give each child at least $1
-        if money < children:
+        money -= children  # Everyone gets at least $1
+        if money < 0:
             return -1
 
-        # Try the maximum possible number of children with $8, down to 0
-        for eights in range(min(children, money // 8), -1, -1):
-            remaining_money = money - 8 * eights
-            remaining_children = children - eights
+        eight = min(money // 7, children)  # Try giving $7 more to some kids (total $8)
+        money -= eight * 7
+        children -= eight
 
-            # Each remaining child needs at least $1
-            if remaining_money < remaining_children:
-                continue
+        # Special checks to avoid anyone ending up with exactly $4 or leftover money
+        if (children == 0 and money > 0) or (children == 1 and money == 3):
+            eight -= 1
 
-            # Avoid the case where one child gets exactly $4
-            if remaining_children == 1 and remaining_money == 4:
-                continue
-
-            # Valid distribution found
-            return eights
-
-        # If no valid distribution is possible
-        return -1
+        return max(eight, 0)
